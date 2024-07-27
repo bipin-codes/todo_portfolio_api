@@ -3,16 +3,18 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/app.js"
+    "start:dev": "dotenvx run --env-file=.env.dev -- nodemon src/app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@dotenvx/dotenvx": "^1.6.4",
     "express": "^4.19.2"
   },
   "devDependencies": {
+    "dotenv": "^16.4.5",
     "nodemon": "^3.1.4"
   }
 }
