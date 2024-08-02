@@ -3,8 +3,6 @@ const swaggerSpecs = require('../swaggerConfig');
 
 const { app } = require('./server');
 
-const PORT = process.env.PORT || 3000;
-
 const v1Router = require('./routes/v1');
 const v2Router = require('./routes/v2');
 
@@ -26,13 +24,3 @@ app.use((req, res, next) => {
 app.use((err, req, res, next) => {
   console.log('Error Handler Middleware....');
 });
-
-const startupHandler = (err) => {
-  if (err) {
-    console.err(err);
-    return;
-  }
-  console.log(`Server is listening on port ${PORT}`);
-};
-
-app.listen(PORT, startupHandler);
