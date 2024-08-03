@@ -1,8 +1,8 @@
 const { checkSchema, validationResult } = require('express-validator');
-const createToDoSchema = require('../schema/createToDoSchema');
+const { requestSchema } = require('./requestSchema');
 
 const validator = async (req, res, next) => {
-  await checkSchema(createToDoSchema, ['body']).run(req);
+  await checkSchema(requestSchema, ['body']).run(req);
   const { errors } = validationResult(req);
 
   if (errors.length) {
@@ -17,4 +17,4 @@ const validator = async (req, res, next) => {
   next();
 };
 
-module.exports = { createValidator: validator };
+module.exports = { validator };
