@@ -11,7 +11,7 @@ app.use(logger);
 app.use(express.json());
 
 app.use('/api/v1', v1Router);
-app.use('/api/v2', v2Router);
+// app.use('/api/v2', v2Router);
 
 app.use((req, res, next) => {
   console.log('Not Found Handler!!!');

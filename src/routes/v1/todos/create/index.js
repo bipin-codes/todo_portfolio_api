@@ -1,14 +1,11 @@
-const { ToDo } = require('../schema/todo');
+const { createController } = require('./controller');
+const { Model } = require('./dbSchema');
+const { requestSchema } = require('./requestSchema');
+const { validator } = require('./validator');
 
-const create = async (req, res) => {
-  const { task, task_details } = req.body;
-
-  const todo = new ToDo({ task, task_details, completed: false });
-  const result = await todo.save();
-
-  res
-    .status(201)
-    .json({ msg: 'Created successfully!', status: true, data: [result] });
+module.exports = {
+  createController,
+  createRequestSchema: requestSchema,
+  createModel: Model,
+  createValidator: validator,
 };
-
-module.exports = create;

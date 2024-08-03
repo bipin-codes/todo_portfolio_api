@@ -15,5 +15,5 @@ todoSchema.set('toJSON', {
   },
 });
 
-const ToDo = mongoose.model('ToDo', todoSchema);
-module.exports = { ToDo };
+const Model = mongoose.model('ToDo', todoSchema);
+module.exports = { Model };
