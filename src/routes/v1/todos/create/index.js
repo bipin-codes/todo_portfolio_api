@@ -1,9 +1,14 @@
+const { ToDo } = require('../schema/todo');
+
 const create = async (req, res) => {
-  console.log(req.body);
+  const { task, task_details } = req.body;
+
+  const todo = new ToDo({ task, task_details, completed: false });
+  const result = await todo.save();
 
   res
     .status(201)
-    .json({ msg: 'Created successfully!', status: true, data: [] });
+    .json({ msg: 'Created successfully!', status: true, data: [result] });
 };
 
 module.exports = create;
