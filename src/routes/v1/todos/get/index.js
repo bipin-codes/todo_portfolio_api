@@ -1,7 +1,4 @@
-const get = async (req, res) => {
-  res
-    .status(200)
-    .json({ msg: 'Fetched successfully!', status: true, data: [] });
-};
+const { getController } = require('./controller');
+const { validator } = require('./validator');
 
-module.exports = { getTodos: get };
+module.exports = { getController, getValidator: validator };
