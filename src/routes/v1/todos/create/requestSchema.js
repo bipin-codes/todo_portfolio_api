@@ -1,7 +1,7 @@
 const requestSchema = {
   task: {
-    isLength: { options: { min: 10, max: 255 } },
-    errorMessage: 'Task must be between 2 - 255 characters in length',
+    isLength: { options: { min: 5, max: 255 } },
+    errorMessage: 'Task must be between 5 - 255 characters in length',
   },
 };
 
