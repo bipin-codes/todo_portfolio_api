@@ -13,7 +13,13 @@ const updateController = async (req, res) => {
     },
     { new: true }
   );
-  console.log(result);
+
+  if (!result) {
+    return res
+      .status(404)
+      .json({ message: 'No such task found!', status: false, data: [result] });
+  }
+
   res
     .status(200)
     .json({ message: 'Updated successfully!', status: true, data: [result] });
