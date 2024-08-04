@@ -1,6 +1,6 @@
 const { Model: ToDoModel } = require('../dbSchema');
 
-const create = async (req, res) => {
+const createController = async (req, res) => {
   const { task, task_details } = req.body;
 
   const todo = new ToDoModel({ task, task_details, completed: false });
@@ -11,7 +11,7 @@ const create = async (req, res) => {
     .json({ message: 'Created successfully!', status: true, data: [result] });
 };
 
-module.exports = { createController: create };
+module.exports = { createController };
 
 // #   parameters:
 //     #   - name: complete
