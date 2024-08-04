@@ -28,5 +28,8 @@ app.use((err, req, res, next) => {
 });
 
 app.use((err, req, res, next) => {
+  if (err instanceof SyntaxError)
+    return res.status(400).json({ message: 'Bad Request!' });
+
   return res.status(500).json({ message: 'Something went wrong!' });
 });
