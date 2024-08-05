@@ -5,7 +5,6 @@ const requestSchema = {
     errorMessage: `Param 'id' must be a UUID`,
     checkIfMongoID: {
       custom: (value) => {
-        console.log(mongoose.Types.ObjectId.isValid(value));
         if (!mongoose.Types.ObjectId.isValid(value)) {
           throw new Error('Not a valid ID!');
         }

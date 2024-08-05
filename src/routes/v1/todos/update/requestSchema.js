@@ -20,7 +20,7 @@ const requestSchema = {
   task_details: {
     isLength: { options: { min: 10, max: 1000 } },
     optional: true,
-    errorMessage: 'Task details must be between 5 - 255 characters in length',
+    errorMessage: 'Task details must be between 10 - 1000 characters in length',
   },
 
   completed: {
