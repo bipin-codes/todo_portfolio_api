@@ -11,7 +11,7 @@ const validator = async (req, res, next) => {
       value: error.path,
     }));
 
-    next(new Error(JSON.stringify(error)));
+    return next(error);
   }
 
   next();

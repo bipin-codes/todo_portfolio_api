@@ -4,8 +4,6 @@ const { requestSchema } = require('./requestSchema');
 const validator = async (req, res, next) => {
   await checkSchema(requestSchema, ['body']).run(req);
   const { errors } = validationResult(req);
-  console.log('In Validators!');
-  console.log(errors);
 
   if (errors.length) {
     const error = errors.map((error) => ({
@@ -13,7 +11,7 @@ const validator = async (req, res, next) => {
       value: error.path,
     }));
 
-    next(new Error(JSON.stringify(error)));
+    return next(error);
   }
 
   next();
